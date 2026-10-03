@@ -1,0 +1,28 @@
+{
+  "readable": {
+    "total_observation_time": "20s",
+    "activity_summary": {
+      "lying_in_bed": "4s",
+      "standing": "17s"
+    },
+    "bed_summary": {
+      "time_in_bed": "4s",
+      "time_out_of_bed": "17s",
+      "bed_exit_count": 1
+    }
+  },
+  "summary": {
+    "observation_duration_sec": 20.5,
+    "activity_duration_sec": {
+      "lying_in_bed": 3.5,
+      "standing": 17.0
+    },
+    "bed_exit_count": 1,
+    "bed_return_count": 0,
+    "total_in_bed_sec": 3.5,
+    "total_out_of_bed_sec": 17.0,
+    "longest_out_of_bed_period_sec": 17.0,
+    "final_state": "standing",
+    "overall_decision": "NORMAL"
+  }
+}

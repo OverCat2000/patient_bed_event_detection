@@ -1,0 +1,18 @@
+[
+  {
+    "state": "LYING_IN_BED",
+    "start": "00:00",
+    "end": "00:04",
+    "start_sec": 0.0,
+    "end_sec": 3.5,
+    "duration_sec": 3.5
+  },
+  {
+    "state": "STANDING",
+    "start": "00:04",
+    "end": "00:20",
+    "start_sec": 3.5,
+    "end_sec": 20.47,
+    "duration_sec": 16.97
+  }
+]

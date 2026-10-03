@@ -1,0 +1,15 @@
+{
+  "observation_duration_sec": 27.2,
+  "activity_duration_sec": {
+    "lying_in_bed": 7.5,
+    "lying_outside_bed": 7.5,
+    "sitting_on_bed": 12.2
+  },
+  "bed_exit_count": 1,
+  "bed_return_count": 1,
+  "total_in_bed_sec": 19.7,
+  "total_out_of_bed_sec": 7.5,
+  "longest_out_of_bed_period_sec": 5.0,
+  "final_state": "sitting_on_bed",
+  "overall_decision": "ALERT"
+}

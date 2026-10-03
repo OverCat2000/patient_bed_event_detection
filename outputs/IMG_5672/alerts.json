@@ -1,0 +1,30 @@
+{
+  "overall_decision": "NORMAL",
+  "alerts": [],
+  "transition_flags": [
+    {
+      "time": "00:04",
+      "from": "LYING_IN_BED",
+      "to": "SITTING_OUTSIDE_BED",
+      "note": "illegal transition accepted after persisting"
+    },
+    {
+      "time": "00:06",
+      "from": "SITTING_OUTSIDE_BED",
+      "to": "SITTING_ON_BED",
+      "note": "illegal transition accepted after persisting"
+    },
+    {
+      "time": "00:08",
+      "from": "SITTING_ON_BED",
+      "to": "SITTING_OUTSIDE_BED",
+      "note": "illegal transition accepted after persisting"
+    },
+    {
+      "time": "00:10",
+      "from": "SITTING_OUTSIDE_BED",
+      "to": "SITTING_ON_BED",
+      "note": "illegal transition accepted after persisting"
+    }
+  ]
+}

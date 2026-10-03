@@ -1,0 +1,34 @@
+[
+  {
+    "time": "00:10",
+    "observation": "UNKNOWN for 2.5s",
+    "thought": "Current frames insufficient; check surrounding context.",
+    "action": "look_back + look_ahead",
+    "finding": "before=SITTING_ON_BED, after=LYING_IN_BED",
+    "conclusion": "Unresolved, escalate to VLM"
+  },
+  {
+    "time": "00:14",
+    "observation": "UNKNOWN for 5.0s",
+    "thought": "Current frames insufficient; check surrounding context.",
+    "action": "look_back + look_ahead",
+    "finding": "before=LYING_IN_BED, after=SITTING_ON_BED",
+    "conclusion": "Unresolved, escalate to VLM"
+  },
+  {
+    "time": "00:10",
+    "observation": "UNKNOWN after context check",
+    "thought": "Ask the VLM to inspect the frames.",
+    "action": "ask_vlm",
+    "finding": "LYING_OUTSIDE_BED on chair (0.95): The person is visibly lying down on a black leather surface resembling a couch or chair, not a bed.",
+    "conclusion": "Relabel as LYING_OUTSIDE_BED"
+  },
+  {
+    "time": "00:14",
+    "observation": "UNKNOWN after context check",
+    "thought": "Ask the VLM to inspect the frames.",
+    "action": "ask_vlm",
+    "finding": "LYING_OUTSIDE_BED on chair (0.95): The person is visibly lying down on a black couch or chair, covered with an orange blanket.",
+    "conclusion": "Relabel as LYING_OUTSIDE_BED"
+  }
+]

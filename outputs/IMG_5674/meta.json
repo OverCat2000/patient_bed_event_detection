@@ -1,0 +1,19 @@
+{
+  "video": "IMG_5674.MOV",
+  "fps": 30.0,
+  "frame_count": 614,
+  "width": 848,
+  "height": 464,
+  "duration_sec": 20.466666666666665,
+  "sample_fps": 2.0,
+  "step": 15,
+  "sample_interval_sec": 0.5,
+  "scale": 1.0,
+  "samples": 41,
+  "bed_source": "yolo",
+  "processing_sec": 7.7,
+  "patient_track": 3,
+  "id_switches": [],
+  "caregiver_frames": 31,
+  "inferred_frames": 0
+}

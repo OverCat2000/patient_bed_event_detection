@@ -1,0 +1,12 @@
+{
+  "overall_decision": "NORMAL",
+  "alerts": [],
+  "transition_flags": [
+    {
+      "time": "00:04",
+      "from": "LYING_IN_BED",
+      "to": "STANDING",
+      "note": "illegal transition accepted after persisting"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "events": [
+    {
+      "event": "bed_exit",
+      "start_time": "00:00:04",
+      "confirmed_time": "00:00:06",
+      "previous_state": "lying_in_bed",
+      "current_state": "standing",
+      "confidence": 0.92,
+      "assisted": true,
+      "decision": "NORMAL"
+    }
+  ],
+  "cancelled_candidates": []
+}

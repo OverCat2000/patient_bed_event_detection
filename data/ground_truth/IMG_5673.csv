@@ -1,0 +1,4 @@
+start_sec,end_sec,state
+0,18,LYING_IN_BED
+18,24,SITTING_ON_BED
+24,27,STANDING

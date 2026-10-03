@@ -1,0 +1,18 @@
+[
+  {
+    "event": "bed_exit",
+    "start_time": "00:14",
+    "confirmed_time": "00:17",
+    "previous_state": "lying_in_bed",
+    "current_state": "lying_outside_bed",
+    "decision": "MONITOR"
+  },
+  {
+    "event": "return_to_bed",
+    "start_time": "00:19",
+    "confirmed_time": "00:22",
+    "previous_state": "lying_outside_bed",
+    "current_state": "sitting_on_bed",
+    "decision": "NORMAL"
+  }
+]

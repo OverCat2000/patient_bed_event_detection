@@ -1,0 +1,10 @@
+{
+  "overall_decision": "ALERT",
+  "alerts": [
+    {
+      "level": "ALERT",
+      "time": "00:19",
+      "reason": "lying outside bed 5s, possible fall"
+    }
+  ]
+}

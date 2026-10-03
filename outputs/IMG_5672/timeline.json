@@ -1,0 +1,42 @@
+[
+  {
+    "state": "LYING_IN_BED",
+    "start": "00:00",
+    "end": "00:04",
+    "start_sec": 0.0,
+    "end_sec": 3.5,
+    "duration_sec": 3.5
+  },
+  {
+    "state": "SITTING_OUTSIDE_BED",
+    "start": "00:04",
+    "end": "00:06",
+    "start_sec": 3.5,
+    "end_sec": 6.0,
+    "duration_sec": 2.5
+  },
+  {
+    "state": "SITTING_ON_BED",
+    "start": "00:06",
+    "end": "00:08",
+    "start_sec": 6.0,
+    "end_sec": 8.5,
+    "duration_sec": 2.5
+  },
+  {
+    "state": "SITTING_OUTSIDE_BED",
+    "start": "00:08",
+    "end": "00:10",
+    "start_sec": 8.5,
+    "end_sec": 10.0,
+    "duration_sec": 1.5
+  },
+  {
+    "state": "SITTING_ON_BED",
+    "start": "00:10",
+    "end": "00:32",
+    "start_sec": 10.0,
+    "end_sec": 32.1,
+    "duration_sec": 22.1
+  }
+]

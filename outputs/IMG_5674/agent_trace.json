@@ -1,0 +1,46 @@
+{
+  "vlm": "bedrock-openai",
+  "vlm_calls": 1,
+  "trace": [
+    {
+      "time": "00:00",
+      "observation": "Another person is in the scene",
+      "thought": "They may be a caregiver; keep following the monitored person.",
+      "action": "track_patient",
+      "finding": "Patient is track 3",
+      "conclusion": "Use the patient's states only; assisted bed exits are NORMAL"
+    },
+    {
+      "time": "00:09",
+      "observation": "Another person is in the scene",
+      "thought": "They may be a caregiver; keep following the monitored person.",
+      "action": "track_patient",
+      "finding": "Patient is track 3",
+      "conclusion": "Use the patient's states only; assisted bed exits are NORMAL"
+    },
+    {
+      "time": "00:00",
+      "observation": "UNKNOWN for 3.5s",
+      "thought": "Current frames insufficient; check surrounding context.",
+      "action": "look_back + look_ahead",
+      "finding": "before=None, after=STANDING",
+      "conclusion": "Unresolved, escalate to VLM"
+    },
+    {
+      "time": "00:00",
+      "observation": "UNKNOWN after context check",
+      "thought": "Ask the VLM to inspect the frames.",
+      "action": "ask_vlm",
+      "finding": "LYING_IN_BED on bed (0.95): The person is visibly lying down on the bed and partly covered by a blanket.",
+      "conclusion": "Relabel as LYING_IN_BED"
+    },
+    {
+      "time": "00:04",
+      "observation": "Person left the bed region",
+      "thought": "One frame is insufficient to confirm a bed exit; check before and after.",
+      "action": "look_back + look_ahead",
+      "finding": "before={'LYING_IN_BED': 7}, after={'STANDING': 22}",
+      "conclusion": "BED_EXIT confirmed by persistence outside the bed"
+    }
+  ]
+}
