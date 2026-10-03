@@ -11,7 +11,7 @@
   "scale": 1.0,
   "samples": 55,
   "bed_source": "yolo",
-  "processing_sec": 5.7,
+  "processing_sec": 6.6,
   "patient_track": 12,
   "id_switches": [],
   "caregiver_frames": 35,

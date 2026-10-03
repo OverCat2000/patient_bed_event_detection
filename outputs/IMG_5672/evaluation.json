@@ -1,0 +1,148 @@
+{
+  "frames_evaluated": 62,
+  "accuracy": 0.371,
+  "ablation": [
+    {
+      "stage": "raw rules",
+      "accuracy": 0.258,
+      "unknown_frames": 4
+    },
+    {
+      "stage": "+ smoothing",
+      "accuracy": 0.258,
+      "unknown_frames": 7
+    },
+    {
+      "stage": "+ agent (VLM)",
+      "accuracy": 0.371,
+      "unknown_frames": 0
+    },
+    {
+      "stage": "+ state machine",
+      "accuracy": 0.371,
+      "unknown_frames": 0
+    }
+  ],
+  "per_state": {
+    "LYING_IN_BED": {
+      "precision": 1.0,
+      "recall": 0.175,
+      "f1-score": 0.2978723404255319,
+      "support": 40.0
+    },
+    "SITTING_ON_BED": {
+      "precision": 0.3404255319148936,
+      "recall": 1.0,
+      "f1-score": 0.5079365079365079,
+      "support": 16.0
+    },
+    "STANDING": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 6.0
+    },
+    "SITTING_OUTSIDE_BED": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 0.0
+    },
+    "accuracy": 0.3709677419354839,
+    "macro avg": {
+      "precision": 0.3351063829787234,
+      "recall": 0.29375,
+      "f1-score": 0.20145221209050995,
+      "support": 62.0
+    },
+    "weighted avg": {
+      "precision": 0.7330130404941662,
+      "recall": 0.3709677419354839,
+      "f1-score": 0.32325609264524846,
+      "support": 62.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "LYING_IN_BED",
+    "SITTING_ON_BED",
+    "STANDING",
+    "SITTING_OUTSIDE_BED"
+  ],
+  "durations": [
+    {
+      "state": "LYING_IN_BED",
+      "ground_truth_sec": 20.0,
+      "predicted_sec": 3.5,
+      "error_sec": 16.5
+    },
+    {
+      "state": "SITTING_ON_BED",
+      "ground_truth_sec": 8.0,
+      "predicted_sec": 24.6,
+      "error_sec": 16.6
+    },
+    {
+      "state": "STANDING",
+      "ground_truth_sec": 3.0,
+      "predicted_sec": 0.0,
+      "error_sec": 3.0
+    },
+    {
+      "state": "SITTING_OUTSIDE_BED",
+      "ground_truth_sec": 0.0,
+      "predicted_sec": 4.0,
+      "error_sec": 4.0
+    }
+  ],
+  "mean_duration_error_sec": 10.0,
+  "events": {
+    "bed_exit": {
+      "ground_truth": 1,
+      "predicted": 0,
+      "true_positives": 0,
+      "precision": null,
+      "recall": 0.0,
+      "false_detections_at": []
+    },
+    "return_to_bed": {
+      "ground_truth": 0,
+      "predicted": 0,
+      "true_positives": 0,
+      "precision": null,
+      "recall": null,
+      "false_detections_at": []
+    }
+  },
+  "failure_cases": [
+    {
+      "image": "failure_1.png",
+      "from": "00:04",
+      "to": "00:20",
+      "truth": "LYING_IN_BED",
+      "predicted": "SITTING_ON_BED",
+      "features": {
+        "people": 2,
+        "visible_kp": 16,
+        "torso_angle": 68,
+        "knee_angle": 83,
+        "hip_in_bed": true
+      },
+      "why": "TODO: explain the cause"
+    },
+    {
+      "image": "failure_2.png",
+      "from": "00:28",
+      "to": "00:30",
+      "truth": "STANDING",
+      "predicted": "SITTING_ON_BED",
+      "features": {
+        "people": 2,
+        "visible_kp": 16,
+        "torso_angle": 70,
+        "knee_angle": 82,
+        "hip_in_bed": true
+      },
+      "why": "TODO: explain the cause"
+    }
+  ]
+}

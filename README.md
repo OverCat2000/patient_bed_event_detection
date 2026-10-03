@@ -72,7 +72,7 @@ Allowed states: `LYING_IN_BED`, `SITTING_ON_BED`, `SITTING_OUTSIDE_BED`, `STANDI
 uvicorn app:app --reload
 ```
 
-Open http://localhost:8000, choose a video, and click **Analyze video**. The page shows the decision, a timeline, time in each state, bed exits and returns, alerts, the agent's reasoning, and evaluation results if ground truth exists. Long videos can take a few minutes.
+Open http://localhost:8000, choose a video, optionally choose its ground-truth CSV, and click **Analyze video**. An uploaded CSV is saved as `data/ground_truth/<video name>.csv`; without one, an existing file there is used. The page shows the decision, a timeline, time in each state, bed exits and returns, alerts, the agent's reasoning, and evaluation results if ground truth exists. Long videos can take a few minutes.
 
 ## Run the notebook
 
@@ -95,5 +95,5 @@ Results for each video go to `outputs/<video name>/`: timeline, duration summary
 
 ## Failure cases
 
-Three analyzed failure cases, with images, causes, and fixes, are in [`docs/FAILURE_CASES.md`](docs/Failure_Cases.pdf).
+Three analyzed failure cases, with images, causes, and fixes, are in [`docs/Failure_Cases.pdf`](docs/Failure_Cases.pdf).
 

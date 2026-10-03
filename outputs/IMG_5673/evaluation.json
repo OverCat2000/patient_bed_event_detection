@@ -1,0 +1,135 @@
+{
+  "frames_evaluated": 54,
+  "accuracy": 0.833,
+  "ablation": [
+    {
+      "stage": "raw rules",
+      "accuracy": 0.167,
+      "unknown_frames": 40
+    },
+    {
+      "stage": "+ smoothing",
+      "accuracy": 0.167,
+      "unknown_frames": 39
+    },
+    {
+      "stage": "+ agent (VLM)",
+      "accuracy": 0.833,
+      "unknown_frames": 0
+    },
+    {
+      "stage": "+ state machine",
+      "accuracy": 0.833,
+      "unknown_frames": 0
+    }
+  ],
+  "per_state": {
+    "LYING_IN_BED": {
+      "precision": 0.9230769230769231,
+      "recall": 1.0,
+      "f1-score": 0.96,
+      "support": 36.0
+    },
+    "SITTING_ON_BED": {
+      "precision": 0.6,
+      "recall": 0.75,
+      "f1-score": 0.6666666666666666,
+      "support": 12.0
+    },
+    "STANDING": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 6.0
+    },
+    "accuracy": 0.8333333333333334,
+    "macro avg": {
+      "precision": 0.5076923076923077,
+      "recall": 0.5833333333333334,
+      "f1-score": 0.5422222222222222,
+      "support": 54.0
+    },
+    "weighted avg": {
+      "precision": 0.7487179487179487,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.7881481481481482,
+      "support": 54.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "LYING_IN_BED",
+    "SITTING_ON_BED",
+    "STANDING"
+  ],
+  "durations": [
+    {
+      "state": "LYING_IN_BED",
+      "ground_truth_sec": 18.0,
+      "predicted_sec": 19.5,
+      "error_sec": 1.5
+    },
+    {
+      "state": "SITTING_ON_BED",
+      "ground_truth_sec": 6.0,
+      "predicted_sec": 7.7,
+      "error_sec": 1.7
+    },
+    {
+      "state": "STANDING",
+      "ground_truth_sec": 3.0,
+      "predicted_sec": 0.0,
+      "error_sec": 3.0
+    }
+  ],
+  "mean_duration_error_sec": 2.1,
+  "events": {
+    "bed_exit": {
+      "ground_truth": 1,
+      "predicted": 0,
+      "true_positives": 0,
+      "precision": null,
+      "recall": 0.0,
+      "false_detections_at": []
+    },
+    "return_to_bed": {
+      "ground_truth": 0,
+      "predicted": 0,
+      "true_positives": 0,
+      "precision": null,
+      "recall": null,
+      "false_detections_at": []
+    }
+  },
+  "failure_cases": [
+    {
+      "image": "failure_1.png",
+      "from": "00:24",
+      "to": "00:26",
+      "truth": "STANDING",
+      "predicted": "SITTING_ON_BED",
+      "features": {
+        "people": 1,
+        "visible_kp": 14,
+        "torso_angle": 44,
+        "knee_angle": 137,
+        "hip_in_bed": true
+      },
+      "why": "TODO: explain the cause"
+    },
+    {
+      "image": "failure_2.png",
+      "from": "00:18",
+      "to": "00:19",
+      "truth": "SITTING_ON_BED",
+      "predicted": "LYING_IN_BED",
+      "features": {
+        "people": 2,
+        "visible_kp": 0,
+        "torso_angle": null,
+        "knee_angle": null,
+        "hip_in_bed": null
+      },
+      "why": "TODO: explain the cause"
+    }
+  ]
+}

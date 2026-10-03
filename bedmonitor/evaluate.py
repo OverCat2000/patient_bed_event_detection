@@ -70,7 +70,7 @@ def evaluate(stem, df, timeline, events, times, duration, samples, bed_poly, out
                   "error_sec": round(abs(gt_dur.get(st, 0.0) - pred_dur.get(st, 0.0)), 1)}
                  for st in STATE_ORDER if gt_dur.get(st, 0.0) > 0 or pred_dur.get(st, 0.0) > 0]
 
-    gt_states = [x or UNKNOWN for x in df["gt"]]
+    gt_states = [x if isinstance(x, str) else UNKNOWN for x in df["gt"]]
     gt_events, _ = detect_events(gt_states, times, [1.0] * len(times), s)
     event_metrics = {}
     for kind in ("bed_exit", "return_to_bed"):
@@ -82,7 +82,7 @@ def evaluate(stem, df, timeline, events, times, duration, samples, bed_poly, out
                                "recall": round(tp / len(g), 3) if g else None,
                                "false_detections_at": [e["start_time"] for e in fp]}
 
-    wrong = [f != g if g is not None else False for f, g in zip(df["final"], df["gt"])]
+    wrong = [isinstance(g, str) and f != g for f, g in zip(df["final"], df["gt"])]
     error_segs = sorted([(a, b) for flag, a, b in segments(wrong) if flag and b - a >= 2],
                         key=lambda x: x[1] - x[0], reverse=True)[:3]
     failures = []

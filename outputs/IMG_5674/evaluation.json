@@ -1,0 +1,122 @@
+{
+  "frames_evaluated": 40,
+  "accuracy": 0.325,
+  "ablation": [
+    {
+      "stage": "raw rules",
+      "accuracy": 0.15,
+      "unknown_frames": 7
+    },
+    {
+      "stage": "+ smoothing",
+      "accuracy": 0.15,
+      "unknown_frames": 7
+    },
+    {
+      "stage": "+ agent (VLM)",
+      "accuracy": 0.325,
+      "unknown_frames": 0
+    },
+    {
+      "stage": "+ state machine",
+      "accuracy": 0.325,
+      "unknown_frames": 0
+    }
+  ],
+  "per_state": {
+    "LYING_IN_BED": {
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1-score": 0.4,
+      "support": 28.0
+    },
+    "SITTING_ON_BED": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 6.0
+    },
+    "STANDING": {
+      "precision": 0.18181818181818182,
+      "recall": 1.0,
+      "f1-score": 0.3076923076923077,
+      "support": 6.0
+    },
+    "accuracy": 0.325,
+    "macro avg": {
+      "precision": 0.393939393939394,
+      "recall": 0.4166666666666667,
+      "f1-score": 0.23589743589743592,
+      "support": 40.0
+    },
+    "weighted avg": {
+      "precision": 0.7272727272727273,
+      "recall": 0.325,
+      "f1-score": 0.3261538461538462,
+      "support": 40.0
+    }
+  },
+  "confusion_matrix_labels": [
+    "LYING_IN_BED",
+    "SITTING_ON_BED",
+    "STANDING"
+  ],
+  "durations": [
+    {
+      "state": "LYING_IN_BED",
+      "ground_truth_sec": 14.0,
+      "predicted_sec": 3.5,
+      "error_sec": 10.5
+    },
+    {
+      "state": "SITTING_ON_BED",
+      "ground_truth_sec": 3.0,
+      "predicted_sec": 0.0,
+      "error_sec": 3.0
+    },
+    {
+      "state": "STANDING",
+      "ground_truth_sec": 3.0,
+      "predicted_sec": 17.0,
+      "error_sec": 14.0
+    }
+  ],
+  "mean_duration_error_sec": 9.2,
+  "events": {
+    "bed_exit": {
+      "ground_truth": 1,
+      "predicted": 1,
+      "true_positives": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "false_detections_at": [
+        "00:00:04"
+      ]
+    },
+    "return_to_bed": {
+      "ground_truth": 0,
+      "predicted": 0,
+      "true_positives": 0,
+      "precision": null,
+      "recall": null,
+      "false_detections_at": []
+    }
+  },
+  "failure_cases": [
+    {
+      "image": "failure_1.png",
+      "from": "00:04",
+      "to": "00:16",
+      "truth": "LYING_IN_BED",
+      "predicted": "STANDING",
+      "features": {
+        "people": 2,
+        "visible_kp": 15,
+        "torso_angle": 78,
+        "knee_angle": 137,
+        "hip_in_bed": false
+      },
+      "why": "TODO: explain the cause"
+    }
+  ]
+}

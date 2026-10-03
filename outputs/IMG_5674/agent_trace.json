@@ -31,7 +31,7 @@
       "observation": "UNKNOWN after context check",
       "thought": "Ask the VLM to inspect the frames.",
       "action": "ask_vlm",
-      "finding": "LYING_IN_BED on bed (0.95): The person is visibly lying down on the bed and partly covered by a blanket.",
+      "finding": "LYING_IN_BED on bed (0.95): The person is visibly lying down on the bed covered partly by a blanket.",
       "conclusion": "Relabel as LYING_IN_BED"
     },
     {

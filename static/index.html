@@ -21,6 +21,9 @@
   section { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 20px; margin-bottom: 16px; }
   form { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
   input[type=file] { font: inherit; }
+  label.field { display: flex; flex-direction: column; gap: 4px; font-weight: 700; }
+  .optional { font-weight: 400; color: var(--muted); }
+  p.hint { flex-basis: 100%; margin: 0; color: var(--muted); font-size: .92rem; }
   label.check { display: flex; gap: 8px; align-items: center; color: var(--muted); }
   button { font: inherit; font-weight: 700; background: var(--accent); color: #fff; border: 0; border-radius: 8px;
            padding: 10px 18px; cursor: pointer; }
@@ -54,8 +57,15 @@
 
   <section>
     <form id="form">
-      <input type="file" id="video" name="video" accept="video/*" required>
+      <label class="field">Video
+        <input type="file" id="video" name="video" accept="video/*" required>
+      </label>
+      <label class="field">Ground truth CSV <span class="optional">(optional)</span>
+        <input type="file" id="ground_truth" name="ground_truth" accept=".csv,text/csv">
+      </label>
       <label class="check"><input type="checkbox" id="use_vlm" checked> Use the vision-language model for unclear moments</label>
+      <p class="hint">Without a CSV, the ground truth in <code>data/ground_truth/&lt;video name&gt;.csv</code> is used if it exists.
+        Columns: <code>start_sec,end_sec,state</code>.</p>
       <button type="submit" id="run">Analyze video</button>
       <span id="status" role="status"></span>
     </form>
@@ -144,13 +154,15 @@ function render(data) {
 
   const ev = data.evaluation;
   if (ev) {
-    $("eval").innerHTML = `<p>Frame accuracy <strong>${ev.accuracy}</strong> over ${ev.frames_evaluated} sampled frames.
+    const source = data.ground_truth_source === "uploaded" ? "the uploaded CSV" : esc(data.ground_truth_file);
+    $("eval").innerHTML = `<p>Compared against ${source}.</p>
+      <p>Frame accuracy <strong>${ev.accuracy}</strong> over ${ev.frames_evaluated} sampled frames.
       Mean duration error ${ev.mean_duration_error_sec}s.</p>
       <table id="abl"></table><br><table id="dur"></table>`;
     table($("abl"), ev.ablation, [["stage", "Stage"], ["accuracy", "Accuracy"], ["unknown_frames", "Unknown frames"]], "");
     table($("dur"), ev.durations, [["state", "State"], ["ground_truth_sec", "Truth (s)"], ["predicted_sec", "Predicted (s)"], ["error_sec", "Error (s)"]], "");
   } else {
-    $("eval").innerHTML = `<p>No ground truth for this video. Add <code>data/ground_truth/${esc(data.video.replace(/\.[^.]+$/, ""))}.csv</code> to see accuracy.</p>`;
+    $("eval").innerHTML = `<p>No ground truth for this video. Upload a CSV with the video, or add <code>${esc(data.ground_truth_file)}</code>, to see accuracy.</p>`;
   }
 
   const base = "/outputs/" + encodeURIComponent(data.video.replace(/\.[^.]+$/, "")) + "/";
@@ -165,6 +177,8 @@ $("form").addEventListener("submit", async (e) => {
   if (!file) return;
   const body = new FormData();
   body.append("video", file);
+  const gtFile = $("ground_truth").files[0];
+  if (gtFile) body.append("ground_truth", gtFile);
   body.append("use_vlm", $("use_vlm").checked);
   $("run").disabled = true;
   $("status").className = "";
